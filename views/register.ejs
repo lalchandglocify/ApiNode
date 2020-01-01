@@ -1,0 +1,109 @@
+<div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
+        <div class="row flex-grow">
+    <div class="logInBanner">
+          <div class="col-lg-6 d-flex align-items-center justify-content-center mx-auto ">
+            <div class="auth-form-transparent text-left p-3 signUp">
+              <div class="brand-logo">
+                <img src="/images/logo-white.jpg" alt="logo">
+              </div>
+        
+        
+              <h4>New here?</h4>
+              <h6 class="font-weight-light">Join us today! It takes only few steps</h6>
+
+ 
+              <%- include('partials/messages'); -%>
+          <form class="form-horizontal form-material"  action="/users/register" method="post">
+                <div class="form-group">
+                  <label>Name</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend bg-transparent">
+                      <span class="input-group-text  border-right-0">
+                        <i class="ti-user text-primary"></i>
+                      </span>
+                    </div>
+                    <input type="text" class="form-control form-control-lg border-left-0" id="name"
+            name="name"
+            class="form-control"
+            placeholder="Enter Name" value="<%= typeof name != 'undefined' ? name : '' %>" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend bg-transparent">
+                      <span class="input-group-text  border-right-0">
+                        <i class="ti-email text-primary"></i>
+                      </span>
+                    </div>
+                    <input type="email" class="form-control form-control-lg border-left-0" id="email"
+            name="email"
+            class="form-control"
+            placeholder="Enter Email" value="<%= typeof email != 'undefined' ? email : '' %>" />
+                  </div>
+                </div>
+      
+         
+         <div class="form-group">
+                  <label>Password</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend bg-transparent">
+                      <span class="input-group-text  border-right-0">
+                        <i class="ti-lock text-primary"></i>
+                      </span>
+                    </div>
+                    <input type="password" class="form-control form-control-lg border-left-0" id="password"
+            name="password"
+            class="form-control"
+            placeholder="Create Password" value="<%= typeof password != 'undefined' ? password : '' %>" />
+
+                  </div>
+           
+                  <p class="card-description text-white" style="margin-top: 15px;">It Must Contain At Least 6 Characters. characters with a mix of letters, numbers & symbols </p>
+                </div>
+                
+                <div class="form-group">
+                  <label>Password</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend bg-transparent">
+                      <span class="input-group-text  border-right-0">
+                        <i class="ti-lock text-primary"></i>
+                      </span>
+                    </div>
+                    <input type="password" class="form-control form-control-lg border-left-0" id="password2"
+            name="password2"
+            class="form-control"
+            placeholder="Confirm Password" value="<%= typeof password2 != 'undefined' ? password2 : '' %>" />
+
+                  </div>
+                </div>
+                <div class="mb-2">
+                  <div class="form-check">
+                    <label class="form-check-label text-white">
+                      <input type="checkbox" class="form-check-input">
+                      I agree to all Terms & Conditions
+                    </label>
+                  </div>
+                </div>
+                   <div class="form-group text-center">
+                            <div class="col-xs-12 p-b-20">
+                
+                                 <button class="btn btn-success btn-block logInBtn"  type="submit">SignUp</button>
+                 
+                            </div>
+                        </div>
+                <div class="text-center mt-3 font-weight-light text-white">
+                  Already have an account? <a href="/users/login" class="text-primary"><b>Login</b></a>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-6 register-half-bg d-flex flex-row mx-auto ">
+            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2019  All rights reserved.</p>
+          </div>
+        </div>
+    </div>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>

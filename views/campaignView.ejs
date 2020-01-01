@@ -1,0 +1,86 @@
+<% include ./partials/topbar %> 
+<% include ./partials/sidebar %>
+ <div class="container-fluid page-body-wrapper">
+      <div class="main-panel">
+        <div class="content-wrapper">
+         
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+           <form class="forms-sample" method="post">
+          <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                <% include ./partials/messages %>
+                  <h4> <strong> Campaigns View #<%= typeof campaign != 'undefined' ? campaign._id : '' %> </strong></h4>
+                  <div class="table-responsive">
+                  <hr>
+                    <table class="table table-striped table-borderless">
+                        <tr>
+                           <th>Name</th>
+                           <th><%= typeof campaign != 'undefined' ? campaign.name : '' %></th>
+                       
+                         </tr>
+
+                         <tr>
+                           <th>Owner Name </th>
+                           <th><%= typeof campaign != 'undefined' ? campaign.user_id.name : '' %></th>
+                       
+                         </tr>
+
+                         <tr>
+                           <th>Leads</th>
+                           <th><%= typeof campaign != 'undefined' ? campaign.leads : '' %></th>
+                       
+                         </tr>
+
+                         <tr>
+                           <th>Connected</th>
+                           <th><%= typeof campaign != 'undefined' ? campaign.connected : '' %></th>
+                       
+                         </tr>
+
+                         <tr>
+                           <th>Closed</th>
+                           <th><%= typeof campaign != 'undefined' ? campaign.closed : '' %></th>
+                       
+                         </tr>
+
+                         <tr>
+                           <th>Tottal Sales </th>
+                           <th><%= typeof campaign != 'undefined' ? campaign.tottal_sales : '' %></th>
+                       
+                         </tr>
+
+                         <tr>
+                           <th>Created At </th>
+                           <th><%= typeof campaign != 'undefined' ? campaign.created_at : '' %></th>
+                       
+                         </tr>
+                        
+            
+            
+                      <tbody>
+        
+        
+                      </tbody>
+              
+
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+       
+              </div>
+        
+            </div>
+      
+           </form>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+      
+        <!-- partial -->
+      </div>
+      <% include ./partials/footer %> 

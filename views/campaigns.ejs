@@ -1,0 +1,76 @@
+<% include ./partials/topbar %> 
+<% include ./partials/sidebar %>
+ <div class="container-fluid page-body-wrapper">
+      <div class="main-panel">
+        <div class="content-wrapper">
+         
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+           <form class="forms-sample" method="post">
+          <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                <% include ./partials/messages %>
+                  <h4>Campaigns</h4>
+                  <a href="/campaigns/add-new" type="button" class="btn btn-success pull-right" style="margin-left: 890px;margin-top: 10px;">Add New</a>
+                  <div class="table-responsive">
+                    <table class="table table-striped table-borderless">
+                      <thead>
+                        <tr>
+                           <th>Name</th>
+                           <th>Owner Name</th>
+               <th>Leads</th>
+             
+                             <th>Created At</th>
+               <th>Actions</th>
+               </tr>
+              
+            <% for (var i = 0; i < campaign.length; i++) { %>
+            <tr>              
+              <td> <%= campaign[i].name %></td>
+              <td> <%= campaign[i].user_id.name %></td>
+              
+              <td><%= campaign[i].leads %></td>
+              
+          
+             
+              <td><%= campaign[i].created_at %></td>
+              <td><a class='far fa-eye' href="/campaigns/view/<%= campaign[i]._id %>" style='font-size:16px;color:#1f5a1f;padding-left: 6px;'></a>
+                   <a class='far fa-edit' href="/campaigns/edit/<%= campaign[i]._id %>" style='font-size:16px;color:#bf5408;padding-left: 6px;'></a>
+                 <a class='fas fa-times btn-danger' href="/campaigns/delete/<%= campaign[i]._id %>" style='font-size:16px;color:red;padding-left: 6px;' ></a></td>
+        
+              
+            
+              
+              
+              
+                </tr>
+       <%   } %>
+                  </thead>
+            
+                      <tbody>
+        
+        
+                      </tbody>
+              
+
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+       
+              </div>
+        
+            </div>
+      
+           </form>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+      
+        <!-- partial -->
+      </div>
+      <% include ./partials/footer %> 
+

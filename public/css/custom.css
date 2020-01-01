@@ -1,0 +1,14 @@
+.validation_errors{
+	list-style: none;
+    color: #8b0000;
+    border: 2px solid indianred;
+    border-radius: 10px;
+    padding: 16px 19px;
+    }
+
+    .validation_errors ul li{
+    	list-style: none;
+    	text-transform: capitalize;
+
+    }
+
