@@ -5,6 +5,7 @@ var logger = require("morgan");
 require("dotenv").config();
 var indexRouter = require("./routes/index");
 var apiRouter = require("./routes/api");
+var adminRouter = require("./routes/admin");
 var apiResponse = require("./helpers/apiResponse");
 var cors = require("cors");
 const expressLayouts = require('express-ejs-layouts');
@@ -75,6 +76,7 @@ app.use(cors());
 //Route Prefixes
 app.use("/", indexRouter);
 app.use("/api/", apiRouter);
+app.use("/admin/", adminRouter);
 app.use('/users', require('./routes/users'));
 
 // Connect flash

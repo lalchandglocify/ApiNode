@@ -1,74 +1,110 @@
-<div class="container-fluid page-body-wrapper full-page-wrapper">
-      <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
-        <div class="row flex-grow">
-  <div class="logInBanner">
-          <div class="col-lg-6 d-flex align-items-center justify-content-center mx-auto ">
-            <div class="auth-form-transparent text-left p-3">
-              <div class="brand-logo">
-                <img src="/images/logo-white.jpg" alt="logo">
-              </div>
-        
-               <%- include('partials/messages'); -%>
-              <form class="form-horizontal form-material" action="/users/login" method="post">
-        
-                <div class="form-group">
-                  <label for="exampleInputEmail">Email</label>
-                  <div class="input-group">
-                    <div class="input-group-prepend bg-transparent">
-                      <span class="input-group-text border-right-0">
-                        <i class="ti-user text-primary"></i>
-                      </span>
-                    </div>
-                    <input type="text" class="form-control form-control-lg border-left-0" name="email"  placeholder="Enter Email">
-                    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Login</title>
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+  <link rel="icon" href="/admin/assets/img/icon.ico" type="image/x-icon"/>
+
+  <!-- Fonts and icons -->
+  <script src="/admin/assets/js/plugin/webfont/webfont.min.js"></script>
+  <script>
+    WebFont.load({
+      google: {"families":["Open+Sans:300,400,600,700"]},
+      custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"], urls: ['/admin/assets/css/fonts.css']},
+      active: function() {
+        sessionStorage.fonts = true;
+      }
+    });
+  </script>
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="/admin/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/admin/assets/css/azzara.min.css">
+</head>
+<body class="login">
+  <div class="wrapper wrapper-login">
+   
+    <div class="container container-login animated fadeIn">
+      <h3 class="text-center">Sign In</h3>
+      <%- include('partials/messages'); -%>
+    <form class="form-horizontal form-material" action="/users/login" method="post">
+      <div class="login-form">
+        <div class="form-group form-floating-label">
+          <input id="username" name="email" type="text" class="form-control input-border-bottom" required>
+          <label for="username" class="placeholder">Email</label>
+        </div>
+        <div class="form-group form-floating-label">
+          <input id="password" name="password" type="password" class="form-control input-border-bottom" required>
+          <label for="password" class="placeholder">Password</label>
+          <div class="show-password">
+            <i class="flaticon-interface"></i>
           </div>
-                </div>
-      
-                <div class="form-group">
-                  <label for="exampleInputPassword">Password</label>
-                  <div class="input-group">
-                    <div class="input-group-prepend bg-transparent">
-                      <span class="input-group-text border-right-0">
-                        <i class="ti-lock text-primary"></i>
-                      </span>
-                    </div>
-                    <input type="password" class="form-control form-control-lg border-left-0" name = "password"  placeholder="Enter Password">                        
-                  </div>
-                </div>
-                <div class="my-2 d-flex justify-content-between align-items-center">
-                  <div class="form-check">
-                    <label class="form-check-label text-white">
-                      <input type="checkbox" class="form-check-input">
-                      Keep me signed in
-                    </label>
-                  </div>
-                  <a href="#" class="auth-link text-white">Forgot password?</a>
-                </div>
-                  <div class="form-group text-center">
-                            <div class="col-xs-12 p-b-20">
-                                 <button class="btn btn-block btn-lg btn-info  logInBtn" type="submit">Log In</button>
-                 
-                            </div>
-                        </div>
-                <div class="mb-2 d-flex">
-                  <button type="button" class="btn btn-facebook auth-form-btn flex-grow mr-1">
-                    <i class="ti-facebook mr-2"></i>Facebook
-                  </button>
-                  <button type="button" class="btn btn-google auth-form-btn flex-grow ml-1">
-                    <i class="ti-google mr-2"></i>Google
-                  </button>
-                </div>
-                <div class="text-center mt-4 font-weight-light text-white dontAccount">
-                  Don't have an account? <a href="/users/register" class="text-primary">Create</a>
-                </div>
-              </form>
-            </div>
+        </div>
+        <div class="row form-sub m-0">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="rememberme">
+            <label class="custom-control-label" for="rememberme">Remember Me</label>
           </div>
-          <div class="col-lg-6 login-half-bg d-flex flex-row mx-auto ">
-            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2019  All rights reserved.</p>
-          </div>
-  </div>
+          
+          <a href="#" class="link float-right">Forget Password ?</a>
+        </div>
+        <div class="form-action mb-3">
+          <button type="submit"  class="btn btn-primary btn-rounded btn-login">Sign In</button>
+        </div>
+        <div class="login-account">
+          <span class="msg">Don't have an account yet ?</span>
+          <a href="#" id="show-signup" class="link">Sign Up</a>
         </div>
       </div>
-      <!-- content-wrapper ends -->
     </div>
+    </form>
+    <div class="container container-signup animated fadeIn">
+      <h3 class="text-center">Sign Up</h3>
+
+      <form class="form-horizontal form-material"  action="/users/register" method="post">
+      <div class="login-form">
+        <div class="form-group form-floating-label">
+          <input  id="fullname" name="name" value="<%= typeof name != 'undefined' ? name : '' %>" type="text" class="form-control input-border-bottom" required>
+          <label for="fullname" class="placeholder">Fullname</label>
+        </div>
+        <div class="form-group form-floating-label">
+          <input  id="email" name="email" type="email" class="form-control input-border-bottom" required>
+          <label for="email" class="placeholder" value="<%= typeof email != 'undefined' ? email : '' %>">Email</label>
+        </div>
+        <div class="form-group form-floating-label">
+          <input  id="passwordsignin" name="password" type="password" class="form-control input-border-bottom" required>
+          <label for="passwordsignin" class="placeholder" value="<%= typeof password != 'undefined' ? password : '' %>">Password</label>
+          <div class="show-password">
+            <i class="flaticon-interface"></i>
+          </div>
+        </div>
+        <div class="form-group form-floating-label">
+          <input  id="confirmpassword" name="password2" type="password" class="form-control input-border-bottom" required>
+          <label for="confirmpassword" class="placeholder" value="<%= typeof password2 != 'undefined' ? password2 : '' %>>Confirm Password</label>
+          <div class="show-password">
+            <i class="flaticon-interface"></i>
+          </div>
+        </div>
+        <div class="row form-sub m-0">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" name="agree" id="agree">
+            <label class="custom-control-label" for="agree">I Agree the terms and conditions.</label>
+          </div>
+        </div>
+        <div class="form-action">
+          <a href="#" id="show-signin" class="btn btn-danger btn-rounded btn-login mr-3">Cancel</a>
+          <button type="submit" class="btn btn-primary btn-rounded btn-login">Sign Up</button>
+        </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="/admin/assets/js/core/jquery.3.2.1.min.js"></script>
+  <script src="/admin/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+  <script src="/admin/assets/js/core/popper.min.js"></script>
+  <script src="/admin/assets/js/core/bootstrap.min.js"></script>
+  <script src="/admin/assets/js/ready.js"></script>
+</body>
+</html>

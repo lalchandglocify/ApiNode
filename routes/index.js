@@ -5,14 +5,23 @@ const Campaign = require('../models/Campaign');
 
 /* GET home page. */
 router.get("/", function(req, res) {
-	res.render("login", { title: "Express" });
+	//res.render("login", { layout: false });
+	res.redirect('/users/login');
 });
 
 // Dashboard
-router.get('/dashboard', ensureAuthenticated, async(req, res) =>
+router.get('/dashboard', ensureAuthenticated, async(req, res) =>{
+	if(req.user.usertType=="Admin"){
+		res.render('admin/dashboard', {
+    user: req.user,campaign:await Campaign.find({})
+  })
+	}
+	else
+	{
   res.render('dashboard', {
     user: req.user,campaign:await Campaign.find({})
   })
-);
+	}
+});
 
 module.exports = router;
