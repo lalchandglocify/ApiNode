@@ -1,4 +1,5 @@
 var express = require("express");
+var bodyParser = require("body-parser");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
@@ -65,7 +66,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
@@ -78,6 +79,7 @@ app.use("/", indexRouter);
 app.use("/api/", apiRouter);
 app.use("/admin/", adminRouter);
 app.use('/users', require('./routes/users'));
+//app.use(bodyParser.urlencoded({extended: true}));
 
 // Connect flash
 app.use(flash());
