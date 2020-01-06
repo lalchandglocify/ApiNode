@@ -3,7 +3,9 @@
 				<div class="page-inner">
 					<div class="page-header">
 						<h4 class="page-title">All Users</h4>
+
 					</div>
+					<%- include('../../partials/messages'); -%>
 					<div class="row">
 						
 
@@ -77,6 +79,7 @@
 													<th>Name</th>
 													<th>Email</th>
 													<th style="width: 10%">Usertype</th>
+													<th>Action</th>
 												</tr>
 											</thead>
 											
@@ -110,7 +113,13 @@ $('#example').DataTable( {
         { data : "name",name:'name' },
         { data : "email",'name':'email' },
         { data : "usertType",name:'usertType' },
+        { 'render': function ( data, type, row ) {
+                return '<a href="/admin/users/show/'+row._id+'" class="btn btn-primary" >Show</a> <a href="/admin/users/edit/'+row._id+'" class="btn btn-success">Edit</a> <a href="/admin/users/delete/'+row._id+'" class="btn btn-danger">Delete</a>';
+        }},
+
+
    ],
+
 } );
 
 $("#addUserButton").on("click", function () {

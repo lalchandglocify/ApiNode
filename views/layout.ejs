@@ -283,11 +283,7 @@
               </a>
               <div class="collapse" id="tables">
                 <ul class="nav nav-collapse">
-                  <li>
-                    <a href="#">
-                      <span class="sub-item">Basic Table</span>
-                    </a>
-                  </li>
+                  
                   <li>
                     <a href="/admin/users">
                       <span class="sub-item">Users</span>
@@ -390,5 +386,31 @@
 <script src="/admin/assets/js/setting-demo.js"></script>
 <script src="/admin/assets/js/demo.js"></script>
 
+      <script type="text/javascript">
+      $(document).ready(function () {
+       $('table').on('click', '.btn-danger', function(event)
+        {
+            event.preventDefault();
+       var href = $(this).attr('href');
+     
+             swal({
+                      title: "Are you sure?",
+                      text: "It will permanently deleted !",
+                      icon: "warning",
+                      buttons: true,
+                      dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                      if (willDelete) {
+                        swal("Selected item has been deleted!", {
+                          icon: "success",
+                        });
+                      window.location.href = href;
+                      } 
+                     
+                    });
+        });
+      })
+    </script>  
 </body>
 </html>
