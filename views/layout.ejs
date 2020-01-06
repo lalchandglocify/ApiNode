@@ -1,18 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Azzara Bootstrap 4 Admin Dashboard</title>
-  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-  <link rel="icon" href="/admin/assets/img/icon.ico" type="image/x-icon"/>
-
-
   <!-- CSS Files -->
   <link rel="stylesheet" href="/admin/assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="/admin/assets/css/azzara.min.css">
 
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link rel="stylesheet" href="/admin/assets/css/demo.css">
 </head>
 <body>
   <div class="wrapper">
@@ -201,18 +194,14 @@
                   <div class="user-box">
                     <div class="avatar-lg"><img src="/admin/assets/img/profile.jpg" alt="image profile" class="avatar-img rounded"></div>
                     <div class="u-text">
-                      <h4>Hizrian</h4>
-                      <p class="text-muted">hello@example.com</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a>
+                      <h4><%= typeof user != 'undefined' ? user.name : '' %></h4>
+                      <p class="text-muted"><%= typeof user != 'undefined' ? user.email : '' %></p>
                     </div>
                   </div>
                 </li>
                 <li>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">My Profile</a>
-                  <a class="dropdown-item" href="#">My Balance</a>
-                  <a class="dropdown-item" href="#">Inbox</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Account Setting</a>
+                  <a class="dropdown-item" href="/profile">My Profile</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="/users/logout">Logout</a>
                 </li>
@@ -238,7 +227,7 @@
             <div class="info">
               <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                 <span>
-                  Hizrian
+                  <%= typeof user != 'undefined' ? user.name : '' %>
                   <span class="user-level">Administrator</span>
                   <span class="caret"></span>
                 </span>
@@ -248,20 +237,12 @@
               <div class="collapse in" id="collapseExample">
                 <ul class="nav">
                   <li>
-                    <a href="#profile">
+                    <a href="/profile">
                       <span class="link-collapse">My Profile</span>
                     </a>
                   </li>
-                  <li>
-                    <a href="#edit">
-                      <span class="link-collapse">Edit Profile</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#settings">
-                      <span class="link-collapse">Settings</span>
-                    </a>
-                  </li>
+                  
+                  
                 </ul>
               </div>
             </div>
@@ -303,88 +284,19 @@
 
     <%- body %>
     
-    <!-- Custom template | don't include it in your project! -->
-    <div class="custom-template">
-      <div class="title">Settings</div>
-      <div class="custom-content">
-        <div class="switcher">
-          <div class="switch-block">
-            <h4>Topbar</h4>
-            <div class="btnSwitch">
-              <button type="button" class="changeMainHeaderColor" data-color="blue"></button>
-              <button type="button" class="selected changeMainHeaderColor" data-color="purple"></button>
-              <button type="button" class="changeMainHeaderColor" data-color="light-blue"></button>
-              <button type="button" class="changeMainHeaderColor" data-color="green"></button>
-              <button type="button" class="changeMainHeaderColor" data-color="orange"></button>
-              <button type="button" class="changeMainHeaderColor" data-color="red"></button>
-            </div>
-          </div>
-          <div class="switch-block">
-            <h4>Background</h4>
-            <div class="btnSwitch">
-              <button type="button" class="changeBackgroundColor" data-color="bg2"></button>
-              <button type="button" class="changeBackgroundColor selected" data-color="bg1"></button>
-              <button type="button" class="changeBackgroundColor" data-color="bg3"></button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="custom-toggle">
-        <i class="flaticon-settings"></i>
-      </div>
-    </div>
-    <!-- End Custom template -->
+   
   </div>
 </div>
 <!--   Core JS Files   -->
 <script src="/admin/assets/js/core/jquery.3.2.1.min.js"></script>
-<script src="/admin/assets/js/core/popper.min.js"></script>
 <script src="/admin/assets/js/core/bootstrap.min.js"></script>
-
-<!-- jQuery UI -->
-<script src="/admin/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
-<script src="/admin/assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
-
-<!-- jQuery Scrollbar -->
-<script src="/admin/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-
-<!-- Moment JS -->
-<script src="/admin/assets/js/plugin/moment/moment.min.js"></script>
-
-<!-- Chart JS -->
-<script src="/admin/assets/js/plugin/chart.js/chart.min.js"></script>
-
-<!-- jQuery Sparkline -->
-<script src="/admin/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
-
-<!-- Chart Circle -->
-<script src="/admin/assets/js/plugin/chart-circle/circles.min.js"></script>
-
 <!-- Datatables -->
 <script src="/admin/assets/js/plugin/datatables/datatables.min.js"></script>
-
-<!-- Bootstrap Notify -->
-<script src="/admin/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
-
-<!-- Bootstrap Toggle -->
-<script src="/admin/assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
-
-<!-- jQuery Vector Maps -->
-<script src="/admin/assets/js/plugin/jqvmap/jquery.vmap.min.js"></script>
-<script src="/admin/assets/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
-
-<!-- Google Maps Plugin -->
-<script src="/admin/assets/js/plugin/gmaps/gmaps.js"></script>
 
 <!-- Sweet Alert -->
 <script src="/admin/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
 
-<!-- Azzara JS -->
-<script src="/admin/assets/js/ready.min.js"></script>
 
-<!-- Azzara DEMO methods, don't include it in your project! -->
-<script src="/admin/assets/js/setting-demo.js"></script>
-<script src="/admin/assets/js/demo.js"></script>
 
       <script type="text/javascript">
       $(document).ready(function () {

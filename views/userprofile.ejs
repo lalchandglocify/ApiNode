@@ -21,13 +21,13 @@
 										<div class="col-md-6">
 											<div class="form-group form-group-default">
 												<label>Name</label>
-												<input type="text" class="form-control" name="name" placeholder="Name" value="Hizrian">
+												<input type="text" class="form-control" name="name" placeholder="Name" value="<%= typeof user != 'undefined' ? user.name : '' %>">
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group form-group-default">
 												<label>Email</label>
-												<input type="email" class="form-control" name="email" placeholder="Name" value="hello@example.com">
+												<input type="email" class="form-control" name="email" placeholder="Name" value="<%= typeof user != 'undefined' ? user.email : '' %>">
 											</div>
 										</div>
 									</div>
@@ -88,7 +88,7 @@
 								</div>
 								<div class="card-body">
 									<div class="user-profile text-center">
-										<div class="name">Hizrian, 19</div>
+										<div class="name"><%= typeof user != 'undefined' ? user.name : '' %></div>
 										<div class="job">Frontend Developer</div>
 										<div class="desc">A man who hates loneliness</div>
 										<div class="social-media">
