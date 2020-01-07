@@ -70,20 +70,20 @@ router.post('/api/Adduser', ensureAuthenticated,function (req, res) {
 
 
    const { name, email, password } = req.body;
-errors='';
+errorss='';
   if (!name || !email || !password) {
-    errors = 'Please enter all fields';
+    errorss = 'Please enter all fields';
   }
 
   
 
-  if (errors != '') {
-    res.send(errors);
+  if (errorss != '') {
+    res.send(errorss);
   } else {
     User.findOne({ email: email }).then(user => {
       if (user) {
-       errors = 'Email already exists';
-        res.send(errors);
+       errorss = 'Email already exists';
+        res.send(errorss);
       } else {
         const newUser = new User({
           name,
