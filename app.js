@@ -16,6 +16,9 @@ const passport = require('passport');
 
 // DB connection
 var MONGODB_URL = process.env.MONGODB_URL;
+
+
+
 var mongoose = require("mongoose");
 mongoose.connect(MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
 	//don't show the log when it is test
